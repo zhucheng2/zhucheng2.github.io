@@ -16,19 +16,20 @@
   
   
   
-  <title>流星聚集地</title>
+  <title>js数据类型转换,及运算符 | 流星聚集地</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="慢才后生的个人博客">
-<meta name="keywords" content="慢才后生,博客,个人网站,学习,分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="流星聚集地">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="一、不同的数据类型会占用不同大小的内存空间，为数据指定相应的数据类型，可以更合理地使用内存。 二、js中的数据类型（7种原始类型/基本类型，1种引用类型/复杂类型）原始类型/基本类型：Number,String,Boolean,Null,Undifined,BigInt,Symbol引用类型/复杂类型: Object typeof 操作符【此为操作符，并非构造函数！typeof()中的()只是将后">
+<meta name="keywords" content="js,数据类型,运算符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js数据类型转换,及运算符">
+<meta property="og:url" content="http://yoursite.com/2023/03/10/js数据类型转换，及运算符/index.html">
 <meta property="og:site_name" content="流星聚集地">
-<meta property="og:description" content="慢才后生的个人博客">
+<meta property="og:description" content="一、不同的数据类型会占用不同大小的内存空间，为数据指定相应的数据类型，可以更合理地使用内存。 二、js中的数据类型（7种原始类型/基本类型，1种引用类型/复杂类型）原始类型/基本类型：Number,String,Boolean,Null,Undifined,BigInt,Symbol引用类型/复杂类型: Object typeof 操作符【此为操作符，并非构造函数！typeof()中的()只是将后">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2023-03-10T11:33:59.660Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="流星聚集地">
-<meta name="twitter:description" content="慢才后生的个人博客">
+<meta name="twitter:title" content="js数据类型转换,及运算符">
+<meta name="twitter:description" content="一、不同的数据类型会占用不同大小的内存空间，为数据指定相应的数据类型，可以更合理地使用内存。 二、js中的数据类型（7种原始类型/基本类型，1种引用类型/复杂类型）原始类型/基本类型：Number,String,Boolean,Null,Undifined,BigInt,Symbol引用类型/复杂类型: Object typeof 操作符【此为操作符，并非构造函数！typeof()中的()只是将后">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -74,17 +75,15 @@
 </header>
 
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main">
-  
-    <article id="post-js数据类型转换，及运算符" class="post-js数据类型转换，及运算符 post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-js数据类型转换，及运算符" class="post-js数据类型转换，及运算符 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
         
         
   
-    <h1 class="entry-title">
-      <a class="article-title" href="/2023/03/10/js数据类型转换，及运算符/">js数据类型转换,及运算符</a>
+    <h1 class="entry-title article-title">
+      js数据类型转换,及运算符
     </h1>
   
 
@@ -100,11 +99,38 @@
         <p><strong>一、不同的数据类型会占用不同大小的内存空间，为数据指定相应的数据类型，可以更合理地使用内存。</strong></p>
 <p><strong>二、js中的数据类型（7种原始类型/基本类型，1种引用类型/复杂类型）</strong><br>原始类型/基本类型：Number,String,Boolean,Null,Undifined,BigInt,Symbol<br>引用类型/复杂类型: Object</p>
 <p>typeof 操作符【此为操作符，并非构造函数！typeof()中的()只是将后续的内容当做一个整体而已，非必须有】<br>作用：以 字符串形式 返回 变量中值的 数据类型。<br>“undefined”表示 变量 已使用var,let等关键字声明，但未赋值（初始化）;<br>“boolean”表示为 变量值的 数据类型为 布尔值;<br>“string”表示为字符串;<br>“number”表示为数值;<br>“object”表示为对象；（变量值为null时， typeof测出来的数据类型是object —特殊情况）<br>“function”表示为函数;<br>“symbol”表示为符号；</p>
-        
-          <p class="article-more-link">
-            <a href="/2023/03/10/js数据类型转换，及运算符/#more" class="more-link">阅读更多 <span class="meta-nav">→</span></a>
-          </p>
-        
+ <a id="more"></a>
+<p><code>1.Number</code><br>一般值：整数，小数（又称 浮点数，小数运算之前，必须先把小数转换为整数！）；<br>特殊值：NAN, Infinity, MAX_VALUE, MIN_VALUE</p>
+<p>NaN (为not a number的简写)代表一个计算错误，它是一个错误的操作所得到的结果；console.log(10 * “abc”); // NaN<br>NaN和任何数据进行运算，结果都是NaN。<br>Infinity, 无穷大 ；-Infinity, 负无穷大 【1/0 在js中值为无穷大，java中会直接报错】</p>
+<p>MAX_VALUE, MIN_VALUE（最大正数值，最小正数值）<br>用法：<br>var min = Number.MIN_VALUE;<br>var max = Number.MAX_VALUE;</p>
+<p>isNaN()构造函数<br>用法及作用<br>isNaN(num)，判断num值为NaN则返回true</p>
+<p><code>2.String</code><br>var str = ‘qwer’;<br>str.length获取str的length<br>str[1]获取str的第2个字母</p>
+<p>字符串的拼接【’+’遇到 字符串，直接解释为 字符串拼接】<br>转义字符（\’、\”引号的 转义，\n换行等）<br>es6中的 模板字符串。用法（反引号中直接写 包含 以${}包裹变量名的 字符串）：<code>qwer${变量名}erter</code></p>
+<p><code>3.Boolean(共2个值，非true即false)</code><br>关系运算符 返回的结果，就是布尔数据类型。console.log(2 &gt; 1);   //true<br>‘!’的 取反 操作。<br><code>4.Undefined(只有1个值undefined)</code><br>变量 已使用var,let等关键字声明，但未赋值（初始化） 时，该变量的数据类型为Undefined。被动的，很少主动用！<br>   var uname;<br>   console.log(uname);  //变量的值 默认为 undefined<br>   console.log(typeof uname);  //变量中值的 数据类型 为undefined<br><code>5.Null(只有1个值Null）</code><br>用法（给一个已经声明的变量进行初始化，经常用！）：var user = null;<br><code>6.Object</code><br>可以表示一组数据，是其他数据的一个集合。可看作一个容器，是js中众多容器 {}  []  set map…中的一种。</p>
+<p><strong>三、js中的 数据类型转换</strong><br><code>1.其它数据类型 转为 String类型</code><br>强转：  toString()  String()<br>toString() 【只能把number 和 boolean 转换为字符串！undefined、Null都没有原型链，无法强转】<br>举例：  var a = 100;<br>a不是一个对象，a.toString(),会瞬间把a包装成一个对象，这类对象叫包装对象，其中’. ‘为属性访问运算符。</p>
+<p>String()构造函数，强大！【可以把number、boolean、undefined、null、字面量(固定取值) 转换为字符串！】</p>
+<p>隐式转换：方便！（’+’遇到 字符串，直接解释为 拼接字符串，故 字符串前直接加’+’ 即可对其完成类型转换）<br>【运算符 左右两侧数据类型不一致时，运算符会悄悄的把一种数据类型转为另一种数据类型，保持数据类型一致。】</p>
+<p><code>2.其它数据类型 转为 Number类型</code><br>Number() 构造函数，或者前面加上”+” 【把”123”、”   123   “转成123、空格字符串”     “或空串”” 转成0、”100px”转成NaN】<br>特殊：Number(false)和Number(Null) 都转为 0。Number(true) 转为 1。Number(undefined) 转为 NaN。</p>
+<p>parseInt转为整数 parseFloat转为小数【能转则转！”100px”转成100，”px100”转成NaN】</p>
+<p><code>3.其它数据类型 转为 Boolean类型</code><br>Boolean() 构造函数，强转<br> 【转为false: 0, null, NaN, undefined, 空串””。其他情况都转为true】</p>
+<p><strong>四、运算符</strong><br>       // 运算符：具有某些特定功能的符号  +  -  *  /  %<br>        // 操作数： 1 + 1 运算符号两侧的数据都是 操作数<br>        // 要求：运算的时候，左右两侧的数据类型必须保持一致。如果不一致，会发生类型转换。</p>
+<pre><code>    //  从功能上划分：【运算后，都会整体返回一个布尔值。】
+    //     算术运算符
+    //     递增递减运算符( ++ 在前，整体是一个新值 ，++在后整体是一个旧值)
+    //     关系运算符
+【算数、递增递减、和关系运算符中，会把两边的 操作数 隐式转换为Number类型】
+    //     逻辑运算符（&amp;&amp;一假全假、||一真全真、!。注意：&amp;&amp;碰到第一个为false，便会立即中断后续的语句。|| 碰到第一个为true，也会立即中断后续的语句。）
+    //     赋值运算符
+
+    // 从操作数上划分
+    //    一元运算符  单目运算符
+    //    二元运算符  双目运算符
+    //    三元运算符  三目运算符  三元表达式 （表达式 ? 结果A : 结果B）
+</code></pre><p>【拓展】<br>1.!=隐式类型转换 不判断数据类型。!==判断数据类型（==与===同理）</p>
+<p>2.后端传递数据过来进行判断时，为数组时判断数组的长度，为对象时用if(Object.keys(obj).length){}，判断对象属性数组长度。<br>如果可能传过来null，也有可能传过来数组，并且不希望空数组执行语句，则可以if(res &amp;&amp; res.length){}，res和res.length位置不能换，如果为null，则直接返回null，后面的res.length不执行，从而不报错，如果为[]，则res.length为0，返回0，也将空数组去除了。</p>
+<p>3.在js中根本不存在真正的空对象，理解这一点至关重要！即使时最简单的{}对象也会包含从Object.prototype继承而来的属性和方法。我们提到的”空对象”只是说这个对象没有自有属性，不考虑它是否有继承而来的属性。<br>{}、null、[]的区别【注：在转化为 布尔值时，只有null转为false！[]、{}都会被转为true。】<br>{}是一个不完全空的对象，原型链上有Object；null为原型链顶端，因此Object.prototype.<strong>proto</strong>===null为true。<br>null是完全空对象，原型链也没有。<br>[]原型链上还比{}多一个Array。</p>
+<p>4.使用 三元运算符能做到的，if else语句也能做到。只是三元运算符不仅能用于js，也能与html标签结合使用：</p>
+
       
     </div><!-- .entry-content -->
 
@@ -128,224 +154,20 @@
 </article>
 
 
-
-
-
-
-  
-    <article id="post-使用surge发布前端项目" class="post-使用surge发布前端项目 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2023/03/05/使用surge发布前端项目/">使用surge发布前端项目</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2023/03/05/使用surge发布前端项目/" data-id="clf2gn0d4000ancw2qllepz4p" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>Surge是面向前端开发人员的静态web发布网站。</p>
-<h4 id="1-安装node"><a href="#1-安装node" class="headerlink" title="1. 安装node"></a>1. 安装node</h4><h4 id="2-安装surge"><a href="#2-安装surge" class="headerlink" title="2. 安装surge"></a>2. 安装surge</h4><p>npm install –global surge</p>
-        
-          <p class="article-more-link">
-            <a href="/2023/03/05/使用surge发布前端项目/#more" class="more-link">阅读更多 <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2023/03/05/使用surge发布前端项目/">
-    <time datetime="2023-03-05T13:15:50.000Z" class="entry-date">
-        2023-03-05
-    </time>
-</a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/learning/">学习</a>
-  </div>
-
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/surge/">surge</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/静态资源发布/">静态资源发布</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-基于PHP的个人博客网站的设计与实现" class="post-基于PHP的个人博客网站的设计与实现 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2019/05/25/基于PHP的个人博客网站的设计与实现/">基于PHP的个人博客网站的设计与实现</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/05/25/基于PHP的个人博客网站的设计与实现/" data-id="clf2gn0da000fncw2zjswv6ia" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>以下是我毕业设计的部分介绍：</p>
-<video width="600" controls="controls" preload="auto"><br><source src="https://raw.githubusercontent.com/zhucheng2/blog-resources/master/video/blog_video.mp4" type="video/mp4"><br>您的浏览器不支持video标签！<br></video>
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2019/05/25/基于PHP的个人博客网站的设计与实现/">
-    <time datetime="2019-05-24T20:33:47.000Z" class="entry-date">
-        2019-05-25
-    </time>
-</a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/movies/">电影</a>
-  </div>
-
+        <span class="nav-next"><a href="/2023/03/05/使用surge发布前端项目/" rel="next">使用surge发布前端项目 <span class="meta-nav">→</span></a></span>
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/毕业设计/">毕业设计</a></li></ul>
-
-    </footer>
-</article>
+</nav><!-- .nav-single -->
 
 
 
 
 
 
-  
-    <article id="post-Never-letting-Go" class="post-Never-letting-Go post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2019/01/25/Never-letting-Go/">Never letting Go</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/01/25/Never-letting-Go/" data-id="clf2gn0cw0005ncw2joxkp7fy" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>待更新</p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2019/01/25/Never-letting-Go/">
-    <time datetime="2019-01-24T17:53:38.000Z" class="entry-date">
-        2019-01-25
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/musics/">音乐</a>
-  </div>
-
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-流浪地球" class="post-流浪地球 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2019/01/25/流浪地球/">流浪地球</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/01/25/流浪地球/" data-id="clf2gn0d6000bncw25rh0t19u" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>待更新</p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2019/01/25/流浪地球/">
-    <time datetime="2019-01-24T17:52:04.000Z" class="entry-date">
-        2019-01-25
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/movies/">电影</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/国片新星/">国片新星</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-  
-    <nav id="pagination">
-      <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
-      </nav>
-    </nav>
-  
 
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">
