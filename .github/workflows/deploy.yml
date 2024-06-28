@@ -1,0 +1,19 @@
+# deploy.yml
+name: Deploy to Vercel Production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Deploy with Vercel
+      uses: vercel/vercel-action@v2
+      with:
+        deployTarget: production
+        token: ${{ secrets.VERCEL_TOKEN }}
+
