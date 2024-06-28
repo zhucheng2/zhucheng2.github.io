@@ -1,5 +1,7 @@
 .DS_Store
 .vercel
+.gitignore
+.git-ftp-ignore
 
 node_modules
 /app-*
