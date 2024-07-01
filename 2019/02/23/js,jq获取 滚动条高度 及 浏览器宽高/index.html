@@ -15,15 +15,17 @@
   
   
   
-  <title>Tag: 静态资源发布 | 流星聚集地</title>
+  <title>流星聚集地</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="慢才后生的个人博客">
-<meta property="og:type" content="website">
+  <meta name="description" content="title:js,jq获取 滚动条高度 及 浏览器宽高categories:学习date:2018-11-01 00:23:59tags:[js,jq,滚动条高度]  &#x2F;&#x2F; 获取 滚动条高度console.log(window.scrollY);    console.log(window.pageYOffset);console.log(document.documentE">
+<meta property="og:type" content="article">
 <meta property="og:title" content="流星聚集地">
-<meta property="og:url" content="http://yoursite.com/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%91%E5%B8%83/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/02/23/js,jq%E8%8E%B7%E5%8F%96%20%E6%BB%9A%E5%8A%A8%E6%9D%A1%E9%AB%98%E5%BA%A6%20%E5%8F%8A%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%BD%E9%AB%98/index.html">
 <meta property="og:site_name" content="流星聚集地">
-<meta property="og:description" content="慢才后生的个人博客">
+<meta property="og:description" content="title:js,jq获取 滚动条高度 及 浏览器宽高categories:学习date:2018-11-01 00:23:59tags:[js,jq,滚动条高度]  &#x2F;&#x2F; 获取 滚动条高度console.log(window.scrollY);    console.log(window.pageYOffset);console.log(document.documentE">
 <meta property="og:locale">
+<meta property="article:published_time" content="2019-02-22T17:28:29.668Z">
+<meta property="article:modified_time" content="2024-07-01T12:44:41.351Z">
 <meta property="article:author" content="慢才后生">
 <meta property="article:tag" content="慢才后生,博客,个人网站,学习,分享">
 <meta name="twitter:card" content="summary">
@@ -69,51 +71,65 @@
 </header>
 
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/2023/03/05/%E4%BD%BF%E7%94%A8surge%E5%8F%91%E5%B8%83%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE/">使用surge发布前端项目</a>
-    </h1>
-  
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-js,jq获取 滚动条高度 及 浏览器宽高" class="post-js,jq获取 滚动条高度 及 浏览器宽高 post type-post status-publish format-standard hentry">
+    <!---->
 
-  </header>
-  <footer class="entry-meta">
-    <a href="/2023/03/05/%E4%BD%BF%E7%94%A8surge%E5%8F%91%E5%B8%83%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE/">
-    <time datetime="2023-03-05T13:15:50.000Z" class="entry-date">
-        2023-03-05
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/02/23/js,jq%E8%8E%B7%E5%8F%96%20%E6%BB%9A%E5%8A%A8%E6%9D%A1%E9%AB%98%E5%BA%A6%20%E5%8F%8A%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%BD%E9%AB%98/" data-id="cly2zhkus000548w28tfz1ifw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <hr>
+<p>title:js,jq获取 滚动条高度 及 浏览器宽高<br>categories:学习<br>date:2018-11-01 00:23:59<br>tags:[js,jq,滚动条高度]</p>
+<hr>
+<p>&#x2F;&#x2F; 获取 滚动条高度<br>console.log(window.scrollY);    <br>console.log(window.pageYOffset);<br>console.log(document.documentElement.scrollTop);  &#x2F;&#x2F; chrome下document.body.scrollTop值恒为0<br>console.log($(window).scrollTop());<br>console.log($(“html,body”).scrollTop());<br>console.log($(document).scrollTop());</p>
+<span id="more"></span>
+
+<p>&#x2F;&#x2F; 浏览器窗口可视区 宽度(不包含滚动条)<br>console.log(document.body.clientWidth);    &#x2F;&#x2F; document.documentElement<br>console.log($(document.body).width());    &#x2F;&#x2F;$(document.documentElement), $(“html,body”) 和 $(window)都可<br>console.log(window.innerWidth);  &#x2F;&#x2F; 包含滚动条!</p>
+<p>&#x2F;&#x2F; 值会随窗口变窄而减小(数值未发现规律),但最终不会小于 最初设置的document宽<br>console.log($(document).width());</p>
+<p> </p>
+<p>&#x2F;&#x2F;浏览器可视区 高度(不包含滚动条)<br>console.log(document.documentElement.clientHeight);<br>console.log($(window).height());<br>console.log(window.innerHeight);</p>
+<p>&#x2F;&#x2F; 最初document 的高度(即使js改变了文档宽高也无效)<br>console.log(document.body.clientHeight);<br>console.log($(document.body).height());    &#x2F;&#x2F; $(document.documentElement)和 $(“html,body”) </p>
+<p> </p>
+<p> </p>
+<p>console.log(window.outerWidth);  &#x2F;&#x2F; Chrome测试发现比inner多14px,不知为何<br>alert(window.outerHeight);  &#x2F;&#x2F; 似乎不是浏览器高!</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/02/23/js,jq%E8%8E%B7%E5%8F%96%20%E6%BB%9A%E5%8A%A8%E6%9D%A1%E9%AB%98%E5%BA%A6%20%E5%8F%8A%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%BD%E9%AB%98/">
+    <time datetime="2019-02-22T17:28:29.668Z" class="entry-date">
+        2019-02-23
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/learning/">学习</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/surge/" rel="tag">surge</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%91%E5%B8%83/" rel="tag">静态资源发布</a></li></ul>
-
     </footer>
 </article>
-  
-  
-    </div></section>
-  
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2019/05/25/%E5%9F%BA%E4%BA%8EPHP%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="prev"><span class="meta-nav">←</span> 基于PHP的个人博客网站的设计与实现</a></span>
+    
+    
+        <span class="nav-next"><a href="/2019/01/25/Never-letting-Go/" rel="next">Never letting Go <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
 
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">

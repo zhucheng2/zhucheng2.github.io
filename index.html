@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
+  
+  
+  <meta name="description" content="慢才后生的个人博客" />
+  
 
-  <meta name="apple-mobile-web-app-capable" content="yes"> 
   
-  <meta name="description" content="慢才后生的个人博客">
-  
-
-  
-  <meta name="keywords" content="慢才后生,博客,个人网站,学习,分享">
+  <meta name="keywords" content="慢才后生,博客,个人网站,学习,分享" />
   
   
   
@@ -19,27 +18,28 @@
   <title>流星聚集地</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="慢才后生的个人博客">
-<meta name="keywords" content="慢才后生,博客,个人网站,学习,分享">
 <meta property="og:type" content="website">
 <meta property="og:title" content="流星聚集地">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="流星聚集地">
 <meta property="og:description" content="慢才后生的个人博客">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
+<meta property="article:author" content="慢才后生">
+<meta property="article:tag" content="慢才后生,博客,个人网站,学习,分享">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="流星聚集地">
-<meta name="twitter:description" content="慢才后生的个人博客">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
   
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
   
 
   
   <!-- baidu webmaster push -->
-  <script src="//push.zhanzhang.baidu.com/push.js"></script>
-</head></html>
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+<meta name="generator" content="Hexo 7.2.0"></head>
 <body class="home blog custom-background custom-font-enabled single-author">
   <div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -48,9 +48,8 @@
         <a href="/" title="流星聚集地" rel="home">流星聚集地</a>
       </h1>
       
-        <h2 class="site-description">
-          <a href="/" id="subtitle">--灵感的源泉(⑅˃◡˂⑅)</a>
-        </h2>
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
       
     </hgroup>
 
@@ -60,13 +59,9 @@
             <div class="menu-main-container">
                 <ul id="menu-main" class="nav-menu">
                 
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about">关于</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
                 
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/MyProjects">我的项目</a></li>
-                
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">记录</a></li>
-                
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">首页</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
                 
                 </ul>
             </div>
@@ -84,78 +79,79 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2023/03/11/数组去重的-5种方法/">数组去重的 5种方法</a>
+      <a class="article-title" href="/2023/03/11/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E7%9A%84-5%E7%A7%8D%E6%96%B9%E6%B3%95/">数组去重的 5种方法</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2023/03/11/数组去重的-5种方法/" data-id="clf3pm0sj0000jww2thndpmhn" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2023/03/11/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E7%9A%84-5%E7%A7%8D%E6%96%B9%E6%B3%95/" data-id="cly2zhkv1000i48w2e0ohb0jq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
         <blockquote>
-<p>​        var arr = [1, 2, 2, 3, 4, 4, 5, 6, 7, 7, 4, 3, 5, 7, 11, 12, 11];</p>
-<p>​        var newArr = [];</p>
+<p>​        var arr &#x3D; [1, 2, 2, 3, 4, 4, 5, 6, 7, 7, 4, 3, 5, 7, 11, 12, 11];</p>
+<p>​        var newArr &#x3D; [];</p>
 </blockquote>
-<p>​        //<strong>方法1最优 set对象</strong>【Set是没有重复值的数据集合，传入一个需要去重的数组，Set会自动删除重复的项】</p>
-<p>​        // newArr = Array.from(new Set(arr));</p>
-<p>​        // console.log(newArr)</p>
-<p>​        <strong>//方法2时间短，占空间。newArr.indexOf</strong>【遍历原数组的各项，每次判断新数组中是否存在该项，不存在就把当前项添加到新数组中。此法效率高，但占空间】</p>
-<p>​        /*arr.forEach(function (item, index) { </p>
-<p>​            if (newArr.indexOf(item) === -1) {</p>
+<p>​        &#x2F;&#x2F;<strong>方法1最优 set对象</strong>【Set是没有重复值的数据集合，传入一个需要去重的数组，Set会自动删除重复的项】</p>
+<p>​        &#x2F;&#x2F; newArr &#x3D; Array.from(new Set(arr));</p>
+<p>​        &#x2F;&#x2F; console.log(newArr)</p>
+<p>​        <strong>&#x2F;&#x2F;方法2时间短，占空间。newArr.indexOf</strong>【遍历原数组的各项，每次判断新数组中是否存在该项，不存在就把当前项添加到新数组中。此法效率高，但占空间】</p>
+<p>​        &#x2F;*arr.forEach(function (item, index) { </p>
+<p>​            if (newArr.indexOf(item) &#x3D;&#x3D;&#x3D; -1) {</p>
 <p>​                newArr.push(item)</p>
 <p>​            }</p>
-<p>​        });*/</p>
-<p>​        /* arr.forEach((item, index) =&gt; {// 方法2 箭头函数写法</p>
-<p>​            if (newArr.indexOf(item) === -1) {</p>
+<p>​        });*&#x2F;</p>
+<p>​        &#x2F;* arr.forEach((item, index) &#x3D;&gt; {&#x2F;&#x2F; 方法2 箭头函数写法</p>
+<p>​            if (newArr.indexOf(item) &#x3D;&#x3D;&#x3D; -1) {</p>
 <p>​                newArr.push(item)</p>
 <p>​            }</p>
-<p>​        }); */</p>
-<p>​        const m = new Map();</p>
-<p>​        //【下面的方法用时依次增多！！】</p>
-<p>​        // <strong>方法3.1  map()</strong> 【初始化一个可由 键值对 组成的集合m，形如二维数组。利用Map中 key的唯一性 同名覆盖。再遍历Map集合中的唯一key，并依次放入新数组newArr】</p>
-<p>​        /*for (let i = 0; i &lt; arr.length; i++) {</p>
-<p>​              //m.set(key, value);第一个值为key，注意与forEach((value, key, array)=&gt;{ })参数顺序做区分。</p>
-<p>​              m.set(arr[i], true);//依次把arr中每一项，设定为m中的唯一key</p>
+<p>​        }); *&#x2F;</p>
+<p>​        const m &#x3D; new Map();</p>
+<p>​        &#x2F;&#x2F;【下面的方法用时依次增多！！】</p>
+<p>​        &#x2F;&#x2F; <strong>方法3.1  map()</strong> 【初始化一个可由 键值对 组成的集合m，形如二维数组。利用Map中 key的唯一性 同名覆盖。再遍历Map集合中的唯一key，并依次放入新数组newArr】</p>
+<p>​        &#x2F;*for (let i &#x3D; 0; i &lt; arr.length; i++) {</p>
+<p>​              &#x2F;&#x2F;m.set(key, value);第一个值为key，注意与forEach((value, key, array)&#x3D;&gt;{ })参数顺序做区分。</p>
+<p>​              m.set(arr[i], true);&#x2F;&#x2F;依次把arr中每一项，设定为m中的唯一key</p>
 <p>​          }</p>
 <p>​          m.forEach(function (item, index) {</p>
-<p>​              newArr.push(index)//注意：m集合中的key，此时是forEach中的index！之后把 唯一值 放入 新数组</p>
-<p>​          }); */</p>
-<p>​        // <strong><em>方法3.2，map() 是3.1的进阶，也是利用Map中 key的唯一性</em></strong></p>
-<p>​        /*for (let i = 0; i &lt; arr.length; i++) {</p>
-<p>​            // 若m集合中不存在以当前arr项命名的key，就把当前项设置为m集合中的新key，同时把当前项放入新数组。</p>
+<p>​              newArr.push(index)&#x2F;&#x2F;注意：m集合中的key，此时是forEach中的index！之后把 唯一值 放入 新数组</p>
+<p>​          }); *&#x2F;</p>
+<p>​        &#x2F;&#x2F; <em><strong>方法3.2，map() 是3.1的进阶，也是利用Map中 key的唯一性</strong></em></p>
+<p>​        &#x2F;*for (let i &#x3D; 0; i &lt; arr.length; i++) {</p>
+<p>​            &#x2F;&#x2F; 若m集合中不存在以当前arr项命名的key，就把当前项设置为m集合中的新key，同时把当前项放入新数组。</p>
 <p>​            if (!m.has(arr[i])) {</p>
 <p>​                m.set(arr[i])</p>
 <p>​                newArr.push(arr[i])</p>
 <p>​            }</p>
-<p>​        }; */</p>
-<p>​        //<strong>方法4 filter+arr.indexOf</strong>【遍历arr原数组中的每一项item和index，分别获取的每个item在arr中首项（唯一）的索引组成的集合 是arr原数组所有索引构成集合的一个 子集。返回在两种index一致时，即该索引子集 对应项 所组成的数组，拷贝给newArr】</p>
-<p>​        /* newArr = arr.filter(function (item, index) {</p>
-<p>​            return arr.indexOf(item) == index;</p>
-<p>​        });*/</p>
-<p>​        //<strong>方法5 reduce</strong>【以作为initialValue的[]开始聚合，每次循环聚合返回的结果集_newArr也是数组。遍历原数组arr，拿arr的item依次进行判断：若 最新的 结果集 中，不存在arr的当前item，即把该项添加到结果集数组中。返回新结果集，继续下一个item判断】</p>
-<p>​        /* newArr = arr.reduce((_newArr, item) =&gt; {</p>
+<p>​        }; *&#x2F;</p>
+<p>​        &#x2F;&#x2F;<strong>方法4 filter+arr.indexOf</strong>【遍历arr原数组中的每一项item和index，分别获取的每个item在arr中首项（唯一）的索引组成的集合 是arr原数组所有索引构成集合的一个 子集。返回在两种index一致时，即该索引子集 对应项 所组成的数组，拷贝给newArr】</p>
+<p>​        &#x2F;* newArr &#x3D; arr.filter(function (item, index) {</p>
+<p>​            return arr.indexOf(item) &#x3D;&#x3D; index;</p>
+<p>​        });*&#x2F;</p>
+<p>​        &#x2F;&#x2F;<strong>方法5 reduce</strong>【以作为initialValue的[]开始聚合，每次循环聚合返回的结果集_newArr也是数组。遍历原数组arr，拿arr的item依次进行判断：若 最新的 结果集 中，不存在arr的当前item，即把该项添加到结果集数组中。返回新结果集，继续下一个item判断】</p>
+<p>​        &#x2F;* newArr &#x3D; arr.reduce((_newArr, item) &#x3D;&gt; {</p>
 <p>​            !_newArr.includes(item) &amp;&amp; _newArr.push(item);</p>
-<p>​            // if (!_newArr.includes(item)) {</p>
-<p>​            //     _newArr.push(item);</p>
-<p>​            // }</p>
+<p>​            &#x2F;&#x2F; if (!_newArr.includes(item)) {</p>
+<p>​            &#x2F;&#x2F;     _newArr.push(item);</p>
+<p>​            &#x2F;&#x2F; }</p>
 <p>​            return _newArr;</p>
-<p>​        }, []);*/</p>
-<p>​     // console.log(newArr);</p>
+<p>​        }, []);*&#x2F;</p>
+<p>​     &#x2F;&#x2F; console.log(newArr);</p>
 <hr>
 <p>​    </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">//需求3， 得到各数字每次出现的次数</span></span><br><span class="line"></span><br><span class="line">​        <span class="comment">/*         console.log("各出现次数结果", arr.reduce((pre, cur) =&gt; &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">​                    //pre结果集（对象）中有以 当前项cur 作为key命名的。便把该key对应的value值pre[cur] 赋值给val。没有则初始化为0.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">​                    let val = pre[cur] || 0;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">​                    pre[cur] = ++val;//存在以 当前项cur 作为key命名的。便把该key对应的value值pre[cur]，+1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">​                    return pre;//每次循环， pre对象 结果集 可能不变/增加键值对/原有键值对的value,即pre[cur]+1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">​                &#125;, &#123;&#125;)) */</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">//需求3， 得到各数字每次出现的次数</span></span><br><span class="line"></span><br><span class="line">​        <span class="comment">/*         console.log(&quot;各出现次数结果&quot;, arr.reduce((pre, cur) =&gt; &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">​                    //pre结果集（对象）中有以 当前项cur 作为key命名的。便把该key对应的value值pre[cur] 赋值给val。没有则初始化为0.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">​                    let val = pre[cur] || 0;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">​                    pre[cur] = ++val;//存在以 当前项cur 作为key命名的。便把该key对应的value值pre[cur]，+1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">​                    return pre;//每次循环， pre对象 结果集 可能不变/增加键值对/原有键值对的value,即pre[cur]+1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">​                &#125;, &#123;&#125;)) */</span></span><br></pre></td></tr></table></figure>
+
 <p>[^拓展 练习]: </p>
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2023/03/11/数组去重的-5种方法/">
+    <a href="/2023/03/11/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E7%9A%84-5%E7%A7%8D%E6%96%B9%E6%B3%95/">
     <time datetime="2023-03-11T08:20:34.000Z" class="entry-date">
         2023-03-11
     </time>
@@ -168,7 +164,7 @@
 
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组去重，js，数组/">数组去重，js，数组</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%EF%BC%8Cjs%EF%BC%8C%E6%95%B0%E7%BB%84/" rel="tag">数组去重，js，数组</a></li></ul>
 
     </footer>
 </article>
@@ -184,49 +180,34 @@
 
       <header class="entry-header">
         
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2023/03/10/js数据类型转换，及运算符/">js数据类型转换,及运算符</a>
-    </h1>
-  
-
-        
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2023/03/10/js数据类型转换，及运算符/" data-id="clf3pfc930005c4w2dikevb8o" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2023/03/10/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%8C%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" data-id="cly2zhkux000a48w22l6c74yk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p><strong>一、不同的数据类型会占用不同大小的内存空间，为数据指定相应的数据类型，可以更合理地使用内存。</strong></p>
-<p><strong>二、js中的数据类型（7种原始类型/基本类型，1种引用类型/复杂类型）</strong><br>原始类型/基本类型：Number,String,Boolean,Null,Undifined,BigInt,Symbol<br>引用类型/复杂类型: Object</p>
+        <hr>
+<h2 id="title-js数据类型转换-及运算符date-2023-03-10-18-35-10categories-其它tags-js-数据类型-运算符"><a href="#title-js数据类型转换-及运算符date-2023-03-10-18-35-10categories-其它tags-js-数据类型-运算符" class="headerlink" title="title:js数据类型转换,及运算符date:2023-03-10 18:35:10categories:其它tags:[js,数据类型,运算符]"></a>title:js数据类型转换,及运算符<br>date:2023-03-10 18:35:10<br>categories:其它<br>tags:[js,数据类型,运算符]</h2><p><strong>一、不同的数据类型会占用不同大小的内存空间，为数据指定相应的数据类型，可以更合理地使用内存。</strong></p>
+<p><strong>二、js中的数据类型（7种原始类型&#x2F;基本类型，1种引用类型&#x2F;复杂类型）</strong><br>原始类型&#x2F;基本类型：Number,String,Boolean,Null,Undifined,BigInt,Symbol<br>引用类型&#x2F;复杂类型: Object</p>
 <p>typeof 操作符【此为操作符，并非构造函数！typeof()中的()只是将后续的内容当做一个整体而已，非必须有】<br>作用：以 字符串形式 返回 变量中值的 数据类型。<br>“undefined”表示 变量 已使用var,let等关键字声明，但未赋值（初始化）;<br>“boolean”表示为 变量值的 数据类型为 布尔值;<br>“string”表示为字符串;<br>“number”表示为数值;<br>“object”表示为对象；（变量值为null时， typeof测出来的数据类型是object —特殊情况）<br>“function”表示为函数;<br>“symbol”表示为符号；</p>
         
           <p class="article-more-link">
-            <a href="/2023/03/10/js数据类型转换，及运算符/#more" class="more-link">阅读更多 <span class="meta-nav">→</span></a>
+            <a href="/2023/03/10/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%8C%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/#more" class="more-link">More <span class="meta-nav">→</span></a>
           </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2023/03/10/js数据类型转换，及运算符/">
-    <time datetime="2023-03-10T10:35:10.000Z" class="entry-date">
+    <a href="/2023/03/10/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%8C%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/">
+    <time datetime="2023-03-10T10:35:10.788Z" class="entry-date">
         2023-03-10
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/other/">其它</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据类型/">数据类型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/运算符/">运算符</a></li></ul>
-
     </footer>
 </article>
 
@@ -244,14 +225,14 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2023/03/05/使用surge发布前端项目/">使用surge发布前端项目</a>
+      <a class="article-title" href="/2023/03/05/%E4%BD%BF%E7%94%A8surge%E5%8F%91%E5%B8%83%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE/">使用surge发布前端项目</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2023/03/05/使用surge发布前端项目/" data-id="clf3pfc9a000ac4w2pptgto73" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2023/03/05/%E4%BD%BF%E7%94%A8surge%E5%8F%91%E5%B8%83%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE/" data-id="cly2zhkv4000l48w28xee2ik5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -261,14 +242,14 @@
 <h4 id="1-安装node"><a href="#1-安装node" class="headerlink" title="1. 安装node"></a>1. 安装node</h4><h4 id="2-安装surge"><a href="#2-安装surge" class="headerlink" title="2. 安装surge"></a>2. 安装surge</h4><p>npm install –global surge</p>
         
           <p class="article-more-link">
-            <a href="/2023/03/05/使用surge发布前端项目/#more" class="more-link">阅读更多 <span class="meta-nav">→</span></a>
+            <a href="/2023/03/05/%E4%BD%BF%E7%94%A8surge%E5%8F%91%E5%B8%83%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE/#more" class="more-link">More <span class="meta-nav">→</span></a>
           </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2023/03/05/使用surge发布前端项目/">
+    <a href="/2023/03/05/%E4%BD%BF%E7%94%A8surge%E5%8F%91%E5%B8%83%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE/">
     <time datetime="2023-03-05T13:15:50.000Z" class="entry-date">
         2023-03-05
     </time>
@@ -281,7 +262,7 @@
 
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/surge/">surge</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/静态资源发布/">静态资源发布</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/surge/" rel="tag">surge</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%91%E5%B8%83/" rel="tag">静态资源发布</a></li></ul>
 
     </footer>
 </article>
@@ -300,26 +281,28 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2019/05/25/基于PHP的个人博客网站的设计与实现/">基于PHP的个人博客网站的设计与实现</a>
+      <a class="article-title" href="/2019/05/25/%E5%9F%BA%E4%BA%8EPHP%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">基于PHP的个人博客网站的设计与实现</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/05/25/基于PHP的个人博客网站的设计与实现/" data-id="clf3pfc9c000cc4w2ur7yyw4q" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/05/25/%E5%9F%BA%E4%BA%8EPHP%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" data-id="cly2zhkv0000g48w2fq4t1czu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>以下是我毕业设计的部分介绍：</p>
-<video width="600" controls="controls" preload="auto"><br><source src="https://raw.githubusercontent.com/zhucheng2/blog-resources/master/video/blog_video.mp4" type="video/mp4"><br>您的浏览器不支持video标签！<br></video>
+        <p>以下是我毕业设计的部分介绍：<br><video width="600" controls="controls" preload="auto"></p>
+<source src="https://raw.githubusercontent.com/zhucheng2/blog-resources/master/video/blog_video.mp4" type="video/mp4">
+您的浏览器不支持video标签！
+</video>
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2019/05/25/基于PHP的个人博客网站的设计与实现/">
+    <a href="/2019/05/25/%E5%9F%BA%E4%BA%8EPHP%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">
     <time datetime="2019-05-24T20:33:47.000Z" class="entry-date">
         2019-05-25
     </time>
@@ -332,7 +315,7 @@
 
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/毕业设计/">毕业设计</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li></ul>
 
     </footer>
 </article>
@@ -343,44 +326,38 @@
 
 
   
-    <article id="post-Never-letting-Go" class="post-Never-letting-Go post type-post status-publish format-standard hentry">
+    <article id="post-js,jq获取 滚动条高度 及 浏览器宽高" class="post-js,jq获取 滚动条高度 及 浏览器宽高 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
         
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2019/01/25/Never-letting-Go/">Never letting Go</a>
-    </h1>
-  
-
-        
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/01/25/Never-letting-Go/" data-id="clf3pfc8q0000c4w2wtbc4kk4" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/02/23/js,jq%E8%8E%B7%E5%8F%96%20%E6%BB%9A%E5%8A%A8%E6%9D%A1%E9%AB%98%E5%BA%A6%20%E5%8F%8A%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%BD%E9%AB%98/" data-id="cly2zhkus000548w28tfz1ifw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>待更新</p>
-
+        <hr>
+<p>title:js,jq获取 滚动条高度 及 浏览器宽高<br>categories:学习<br>date:2018-11-01 00:23:59<br>tags:[js,jq,滚动条高度]</p>
+<hr>
+<p>&#x2F;&#x2F; 获取 滚动条高度<br>console.log(window.scrollY);    <br>console.log(window.pageYOffset);<br>console.log(document.documentElement.scrollTop);  &#x2F;&#x2F; chrome下document.body.scrollTop值恒为0<br>console.log($(window).scrollTop());<br>console.log($(“html,body”).scrollTop());<br>console.log($(document).scrollTop());</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/02/23/js,jq%E8%8E%B7%E5%8F%96%20%E6%BB%9A%E5%8A%A8%E6%9D%A1%E9%AB%98%E5%BA%A6%20%E5%8F%8A%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%BD%E9%AB%98/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2019/01/25/Never-letting-Go/">
-    <time datetime="2019-01-24T17:53:38.000Z" class="entry-date">
-        2019-01-25
+    <a href="/2019/02/23/js,jq%E8%8E%B7%E5%8F%96%20%E6%BB%9A%E5%8A%A8%E6%9D%A1%E9%AB%98%E5%BA%A6%20%E5%8F%8A%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%BD%E9%AB%98/">
+    <time datetime="2019-02-22T17:28:29.668Z" class="entry-date">
+        2019-02-23
     </time>
 </a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/musics/">音乐</a>
-  </div>
-
     
     </footer>
 </article>
@@ -394,7 +371,7 @@
   
     <nav id="pagination">
       <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
       </nav>
     </nav>
   
@@ -402,57 +379,48 @@
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">
   
-    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//baidu.com/s">
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
     <div>
-        <input type="text" value name="wd" id="s">
-        <input type="submit" id="searchsubmit" value="百度一下">
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
     </div>
 </form></aside>
   
     
+  
+    
   <aside class="widget">
-    <h3 class="widget-title">音乐</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <audio src="http://www.ytmp3.cn/down/49788.mp3" controls="controls" style="width:100%">
-        您的浏览器不支持 audio 标签。
-      </audio>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">学习</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/movies/">电影</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/musics/">音乐</a><span class="category-list-count">1</span></li></ul>
     </div>
   </aside>
 
   
     
   <aside class="widget">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/other/">其它</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">学习</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/movies/">电影</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/musics/">音乐</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </aside>
-
-  
-    
-  <aside class="widget">
-    <h3 class="widget-title">近期文章</h3>
+    <h3 class="widget-title">Recents</h3>
     <div class="widget-content">
       <ul>
         
           <li>
-            <a href="/2023/03/11/数组去重的-5种方法/">数组去重的 5种方法</a>
+            <a href="/2023/03/11/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E7%9A%84-5%E7%A7%8D%E6%96%B9%E6%B3%95/">数组去重的 5种方法</a>
           </li>
         
           <li>
-            <a href="/2023/03/10/js数据类型转换，及运算符/">js数据类型转换,及运算符</a>
+            <a href="/2023/03/10/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%8C%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2023/03/05/使用surge发布前端项目/">使用surge发布前端项目</a>
+            <a href="/2023/03/05/%E4%BD%BF%E7%94%A8surge%E5%8F%91%E5%B8%83%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE/">使用surge发布前端项目</a>
           </li>
         
           <li>
-            <a href="/2019/05/25/基于PHP的个人博客网站的设计与实现/">基于PHP的个人博客网站的设计与实现</a>
+            <a href="/2019/05/25/%E5%9F%BA%E4%BA%8EPHP%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">基于PHP的个人博客网站的设计与实现</a>
           </li>
         
           <li>
-            <a href="/2019/01/25/Never-letting-Go/">Never letting Go</a>
+            <a href="/2019/02/23/js,jq%E8%8E%B7%E5%8F%96%20%E6%BB%9A%E5%8A%A8%E6%9D%A1%E9%AB%98%E5%BA%A6%20%E5%8F%8A%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%BD%E9%AB%98/">(no title)</a>
           </li>
         
       </ul>
@@ -462,30 +430,45 @@
   
     
   <aside class="widget">
-    <h3 class="widget-title">标签云</h3>
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/index/" rel="tag">index</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/new%E5%AE%9E%E4%BE%8B%E5%8C%96/" rel="tag">new实例化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/" rel="tag">node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/surge/" rel="tag">surge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wamp-server/" rel="tag">wamp server</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BD%E7%89%87%E6%96%B0%E6%98%9F/" rel="tag">国片新星</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%EF%BC%8Cjs%EF%BC%8C%E6%95%B0%E7%BB%84/" rel="tag">数组去重，js，数组</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/" rel="tag">构造方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%91%E5%B8%83/" rel="tag">静态资源发布</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/index/" style="font-size: 10px;">index</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/new实例化/" style="font-size: 10px;">new实例化</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/surge/" style="font-size: 10px;">surge</a> <a href="/tags/wamp-server/" style="font-size: 10px;">wamp server</a> <a href="/tags/国片新星/" style="font-size: 10px;">国片新星</a> <a href="/tags/数据类型/" style="font-size: 10px;">数据类型</a> <a href="/tags/数组去重，js，数组/" style="font-size: 10px;">数组去重，js，数组</a> <a href="/tags/构造方法/" style="font-size: 10px;">构造方法</a> <a href="/tags/毕业设计/" style="font-size: 10px;">毕业设计</a> <a href="/tags/运算符/" style="font-size: 10px;">运算符</a> <a href="/tags/静态资源发布/" style="font-size: 10px;">静态资源发布</a>
+      <a href="/tags/index/" style="font-size: 10px;">index</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/new%E5%AE%9E%E4%BE%8B%E5%8C%96/" style="font-size: 10px;">new实例化</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/surge/" style="font-size: 10px;">surge</a> <a href="/tags/wamp-server/" style="font-size: 10px;">wamp server</a> <a href="/tags/%E5%9B%BD%E7%89%87%E6%96%B0%E6%98%9F/" style="font-size: 10px;">国片新星</a> <a href="/tags/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%EF%BC%8Cjs%EF%BC%8C%E6%95%B0%E7%BB%84/" style="font-size: 10px;">数组去重，js，数组</a> <a href="/tags/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">构造方法</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%91%E5%B8%83/" style="font-size: 10px;">静态资源发布</a>
     </div>
   </aside>
 
   
 </div>
       </div>
-      <a href="#" style="position: fixed;right: 10%;bottom:10%;width:26px;height:30px;line-height:30px;border: 1px solid #b18686;text-align: center;text-decoration: none;color:#4d5a2d;cursor: pointer;">Top</a>
-<footer id="colophon" style="text-align: center;" role="contentinfo">
-    <p>&copy; 2023 慢才后生
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2024 慢才后生
     All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
 </footer>
     <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
 
 <script src="/js/jquery-3.3.1.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
 
 
 <script src="/js/script.js"></script>
+
 
 <script src="/js/navigation.js"></script>
 
