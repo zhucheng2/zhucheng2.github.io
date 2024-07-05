@@ -16,23 +16,14 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      - name: Deploy to Vercel
-        id: deploy
+      - name: Deploy And Get Deployment URL
+        id: get-url
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_EAMON_ID }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
         run: |
-          vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm --scope ${{ secrets.VERCEL_ORG_ID }} --project ${{ secrets.VERCEL_PROJECT_ID }}
-
-      - name: Get Deployment URL
-        id: get-url
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-        run: |
-          DEPLOYMENT_URL=$(vercel --token ${{ secrets.VERCEL_TOKEN }} ls --prod --scope ${{ secrets.VERCEL_ORG_ID }} --project ${{ secrets.VERCEL_PROJECT_ID }} | grep -o 'https://[^ ]*' | head -n 1)
+          DEPLOYMENT_URL=$(vercel --prod --token $VERCEL_TOKEN --confirm --scope $VERCEL_ORG_ID --project $VERCEL_PROJECT_ID | grep -o 'https://[^ ]*' | head -n 1)
           echo "::set-output name=DEPLOYMENT_URL::$DEPLOYMENT_URL"
 
       - name: Create deployment status on GitHub
