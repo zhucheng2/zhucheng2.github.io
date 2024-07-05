@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" /> 
+  
+  <meta name="description" content="慢才后生的个人博客" />
+  
+
+  
+  <meta name="keywords" content="慢才后生,博客,个人网站,学习,分享" />
+  
+  
+  
+  
+  
+  
+  <title>vercel部署方式 | 流星聚集地</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[TOC] 一、本地vercel-cli手动部署在本地npm安装vercel-cli插件，cd 到本地项目目录；选取第三方账号等方式，远程登录vercel，选择 待发布的 vercel项目名；发布项目到 预览环境，或vercel --prod生产环境，成功后会输出 预览链接。 二、vercel面板 直接部署登录vercel面板，导入github仓库，直接发布。只要不断开vercel与git仓库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vercel部署方式">
+<meta property="og:url" content="http://yoursite.com/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/index.html">
+<meta property="og:site_name" content="流星聚集地">
+<meta property="og:description" content="[TOC] 一、本地vercel-cli手动部署在本地npm安装vercel-cli插件，cd 到本地项目目录；选取第三方账号等方式，远程登录vercel，选择 待发布的 vercel项目名；发布项目到 预览环境，或vercel --prod生产环境，成功后会输出 预览链接。 二、vercel面板 直接部署登录vercel面板，导入github仓库，直接发布。只要不断开vercel与git仓库">
+<meta property="og:locale">
+<meta property="og:image" content="http://yoursite.com/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/12.png">
+<meta property="og:image" content="http://yoursite.com/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/vercel-git.PNG">
+<meta property="og:image" content="http://yoursite.com/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/vercel-git-hook.PNG">
+<meta property="og:image" content="http://yoursite.com/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/vercel-hook.PNG">
+<meta property="article:published_time" content="2024-07-04T15:09:17.000Z">
+<meta property="article:modified_time" content="2024-07-05T19:56:26.559Z">
+<meta property="article:author" content="慢才后生">
+<meta property="article:tag" content="vercel">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/12.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="流星聚集地" rel="home">流星聚集地</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about">关于</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/MyProjects">我的项目</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">记录</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">首页</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-vercel部署方式探讨" class="post-vercel部署方式探讨 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      vercel部署方式
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/" data-id="cly94ju0v000a50w253xr0snw" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <img src="/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/12.png" class="" title="vercel部署方式探讨">
+
+<p>[TOC]</p>
+<h4 id="一、本地vercel-cli手动部署"><a href="#一、本地vercel-cli手动部署" class="headerlink" title="一、本地vercel-cli手动部署"></a>一、本地vercel-cli手动部署</h4><p>在本地npm安装vercel-cli插件，cd 到本地项目目录；<br>选取第三方账号等方式，远程登录vercel，选择 待发布的 vercel项目名；<br>发布项目到 预览环境，或<code>vercel --prod</code>生产环境，成功后会输出 预览链接。</p>
+<h4 id="二、vercel面板-直接部署"><a href="#二、vercel面板-直接部署" class="headerlink" title="二、vercel面板 直接部署"></a>二、vercel面板 直接部署</h4><p>登录vercel面板，导入github仓库，直接发布。<br>只要不断开vercel与git仓库的链接，git仓库有新推送，vercel便会同步部署。</p>
+<img src="/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/vercel-git.PNG" class="" title="vercel-git">
+
+
+
+<h4 id="三、github-actions-VERCEL-TOKEN"><a href="#三、github-actions-VERCEL-TOKEN" class="headerlink" title="三、github actions + VERCEL_TOKEN"></a>三、github actions + VERCEL_TOKEN</h4><p>登录vercel面板，新建一个token，并存入到github仓库中的“仓库secret”处，取名为VERCEL_TOKEN；<br>新建work actions，在<code>.yaml</code>中利用$自主地 部署项目到 vercel平台。</p>
+<blockquote>
+<p>解释：部署到生产命令<code>vercel --prod</code>结束后会输出一段信息，进而通过<code>| grep -o</code>过滤出这段信息中的“预览链接”，而变量<code>DEPLOYMENT_URL</code>会通过<code>$()</code>接收这个链接字符串。之后保存到deployment_output.txt中。</p>
+</blockquote>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">name: Deploy to Vercel</span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master  # 当推送到 master 分支时触发</span><br><span class="line">jobs:</span><br><span class="line">  deploy:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    environment: vercel-prod  # 设置环境为 vercel    </span><br><span class="line">    steps:</span><br><span class="line">      - name: Checkout repository</span><br><span class="line">        uses: actions/checkout@v2</span><br><span class="line"></span><br><span class="line">      - name: Install Vercel CLI</span><br><span class="line">        run: npm install -g vercel</span><br><span class="line"></span><br><span class="line">      - name: Deploy to Vercel</span><br><span class="line">        env:</span><br><span class="line">          VERCEL_TOKEN: $&#123;&#123; secrets.VERCEL_TOKEN &#125;&#125;</span><br><span class="line">        run: |</span><br><span class="line">          DEPLOYMENT_URL=$(vercel --prod --token $&#123;&#123; secrets.VERCEL_TOKEN &#125;&#125; --confirm --yes | grep -o &#x27;https://[a-zA-Z0-9./?=_-]*&#x27;)</span><br><span class="line">          echo $DEPLOYMENT_URL &gt; deployment_output.txt</span><br><span class="line">        id: deploy</span><br><span class="line"></span><br><span class="line">      - name: Output Deployment URL</span><br><span class="line">        run: cat deployment_output.txt</span><br><span class="line">        if: success()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="四、github-actions触发vercel-hook"><a href="#四、github-actions触发vercel-hook" class="headerlink" title="四、github actions触发vercel-hook"></a>四、github actions触发vercel-hook</h4><p>登录vercel面板，申请一个直接交给github actions的执行的，用于vercel部署的hook钩子；<br>将该hook钩子存入到github仓库中的“仓库secret”处，取名为VERCEL_DEPLOY_HOOK；只要githubAction中触发该hook即可强制部署：</p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- name: Trigger Vercel Deploy Hook</span><br><span class="line">        run: curl -X POST $&#123;&#123; secrets.VERCEL_DEPLOY_HOOK &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+   <img src="/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/vercel-git-hook.PNG" class="" title="vercel-git-hook">
+
+
+
+<p>另外，可结合vercel中的<code>PROJECT_ID</code>和<code>VERCEL_TOKEN</code>,访问接口<code>https://api.vercel.com/v6/deployments?projectId=YOUR_PROJECT_ID</code>，获取最近的部署信息，进一步获取部署成功的 项目链接：</p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- name: Get Deployment URL</span><br><span class="line">        run: |</span><br><span class="line">          sleep 10  # 等待部署完成</span><br><span class="line">          DEPLOYMENT_URL=$(curl -s &quot;https://api.vercel.com/v6/deployments?projectId=YOUR_PROJECT_ID&quot; \</span><br><span class="line">            -H &quot;Authorization: Bearer $&#123;&#123; secrets.VERCEL_TOKEN &#125;&#125;&quot; \</span><br><span class="line">            | jq -r &#x27;.deployments[0].url&#x27;)</span><br><span class="line">          echo &quot;Deployment URL: $DEPLOYMENT_URL&quot;</span><br></pre></td></tr></table></figure>
+
+<p>完整版：</p>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">name: Deploy to Vercel</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master  # 当推送到 master 分支时触发</span><br><span class="line"></span><br><span class="line">jobs:</span><br><span class="line">  deploy:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">	environment: vercel-prod</span><br><span class="line">    steps:</span><br><span class="line">      - name: Checkout repository</span><br><span class="line">        uses: actions/checkout@v2</span><br><span class="line"></span><br><span class="line">      - name: Trigger Vercel Deploy Hook</span><br><span class="line">        run: curl -X POST $&#123;&#123; secrets.VERCEL_DEPLOY_HOOK &#125;&#125;</span><br><span class="line"></span><br><span class="line">      - name: Get Deployment URL</span><br><span class="line">        run: |</span><br><span class="line">          sleep 10  # 等待部署完成</span><br><span class="line">          DEPLOYMENT_URL=$(curl -s &quot;https://api.vercel.com/v6/deployments?projectId=YOUR_PROJECT_ID&quot; \</span><br><span class="line">            -H &quot;Authorization: Bearer $&#123;&#123; secrets.VERCEL_TOKEN &#125;&#125;&quot; \</span><br><span class="line">            | jq -r &#x27;.deployments[0].url&#x27;)</span><br><span class="line">          echo &quot;Deployment URL: $DEPLOYMENT_URL&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>输出日志：</p>
+ <img src="/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/vercel-hook.PNG" class="" title="vercel-hook">
+
+
+
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><blockquote>
+<p>除了第一种 <code>本地vercel-cli</code>，其他（vercel Deployment Hook，github action）方式，只要git远程仓库有新推送，便自动部署项目到 vercel平台；当在主支推送时，默认部署至vercel生产环境。</p>
+</blockquote>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/">
+    <time datetime="2024-07-04T15:09:17.000Z" class="entry-date">
+        2024-07-04
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/learning/">学习</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vercel/" rel="tag">vercel</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2023/03/10/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%8C%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="next">js数据类型转换,及运算符 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Music</h3>
+    <div class="widget-content">
+      <audio src="http://www.ytmp3.cn/down/49788.mp3" controls="controls"
+             style="width:100%">
+        您的浏览器不支持 audio 标签。
+      </audio>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/other/">其它</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/learning/">学习</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/movies/">电影</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/musics/">音乐</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2024/07/04/vercel%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E6%8E%A2%E8%AE%A8/">vercel部署方式</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/10/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%8C%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/">js数据类型转换,及运算符</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/05/%E4%BD%BF%E7%94%A8surge%E5%8F%91%E5%B8%83%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE/">使用surge发布前端项目</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/10/Never-letting-Go/">Never letting Go</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/25/%E5%9F%BA%E4%BA%8EPHP%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/">基于PHP的个人博客网站的设计与实现</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/index/" rel="tag">index</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js%EF%BC%8Cjq%EF%BC%8C%E6%BB%9A%E5%8A%A8%E6%9D%A1%E9%AB%98%E5%BA%A6/" rel="tag">js，jq，滚动条高度</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/new%E5%AE%9E%E4%BE%8B%E5%8C%96/" rel="tag">new实例化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/" rel="tag">node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/surge/" rel="tag">surge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vercel/" rel="tag">vercel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wamp-server/" rel="tag">wamp server</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BD%E7%89%87%E6%96%B0%E6%98%9F/" rel="tag">国片新星</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="tag">数据类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%EF%BC%8Cjs%EF%BC%8C%E6%95%B0%E7%BB%84/" rel="tag">数组去重，js，数组</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/" rel="tag">构造方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%91%E5%B8%83/" rel="tag">静态资源发布</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/index/" style="font-size: 10px;">index</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/js%EF%BC%8Cjq%EF%BC%8C%E6%BB%9A%E5%8A%A8%E6%9D%A1%E9%AB%98%E5%BA%A6/" style="font-size: 10px;">js，jq，滚动条高度</a> <a href="/tags/new%E5%AE%9E%E4%BE%8B%E5%8C%96/" style="font-size: 10px;">new实例化</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/surge/" style="font-size: 10px;">surge</a> <a href="/tags/vercel/" style="font-size: 10px;">vercel</a> <a href="/tags/wamp-server/" style="font-size: 10px;">wamp server</a> <a href="/tags/%E5%9B%BD%E7%89%87%E6%96%B0%E6%98%9F/" style="font-size: 10px;">国片新星</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 10px;">数据类型</a> <a href="/tags/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%EF%BC%8Cjs%EF%BC%8C%E6%95%B0%E7%BB%84/" style="font-size: 10px;">数组去重，js，数组</a> <a href="/tags/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">构造方法</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" style="font-size: 10px;">运算符</a> <a href="/tags/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8F%91%E5%B8%83/" style="font-size: 10px;">静态资源发布</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <a href="#" style="position: fixed;right: 10%;bottom:10%;width:26px;height:30px;line-height:30px;border: 1px solid #b18686;text-align: center;text-decoration: none;color:#4d5a2d;cursor: pointer;">Top</a>
+<footer id="colophon" style="text-align: center;" role="contentinfo">
+    <p>&copy; 2024 慢才后生
+    All rights reserved.</p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
