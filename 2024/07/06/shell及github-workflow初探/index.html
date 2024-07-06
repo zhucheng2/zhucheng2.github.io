@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://yoursite.com/2024/07/06/shell%E5%8F%8Agithub-workflow%E5%88%9D%E6%8E%A2/4-%E5%88%9B%E5%BB%BAgithub%E5%8F%91%E5%B8%83%E7%8A%B6%E6%80%81-%E5%BE%97%E5%88%B0github%E5%8F%91%E5%B8%83ID.png">
 <meta property="og:image" content="http://yoursite.com/2024/07/06/shell%E5%8F%8Agithub-workflow%E5%88%9D%E6%8E%A2/5-%E6%A0%B9%E6%8D%AE%E8%AF%A5github%E5%8F%91%E5%B8%83ID%E6%9B%B4%E6%96%B0%E5%8F%91%E5%B8%83%E7%8A%B6%E6%80%81.png">
 <meta property="article:published_time" content="2024-07-06T09:18:24.000Z">
-<meta property="article:modified_time" content="2024-07-06T19:00:23.129Z">
+<meta property="article:modified_time" content="2024-07-06T19:08:35.590Z">
 <meta property="article:author" content="慢才后生">
 <meta property="article:tag" content="vercel">
 <meta name="twitter:card" content="summary">
@@ -96,7 +96,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2024/07/06/shell%E5%8F%8Agithub-workflow%E5%88%9D%E6%8E%A2/" data-id="clyahp670000r2sw2ce6d8ong" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2024/07/06/shell%E5%8F%8Agithub-workflow%E5%88%9D%E6%8E%A2/" data-id="clyaime6b000d90w2d0mb6xk8" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -126,101 +126,14 @@
 
 
 
-<h3 id="五、deploy-yml完整代码（含-github仓库secret）："><a href="#五、deploy-yml完整代码（含-github仓库secret）：" class="headerlink" title="五、deploy.yml完整代码（含 github仓库secret）："></a>五、deploy.yml完整代码（含 github仓库secret）：</h3><p>“““shell<br>name: Deploy to Vercel</p>
-<p>on:<br>  push:<br>    branches:<br>      - master</p>
-<p>jobs:<br>  deploy:<br>    runs-on: ubuntu-latest</p>
-<pre><code>steps:
-  - name: Checkout repository
-    uses: actions/checkout@v2
-
-  - name: Install Vercel CLI
-    run: npm install -g vercel
-
-  - name: Deploy to Vercel And Get Deployment URL
-    id: get-url
-    env:
-      VERCEL_TOKEN: $&#123;&#123; secrets.VERCEL_TOKEN &#125;&#125;
-    run: |
-      vercel --prod --token $&#123;&#123; secrets.VERCEL_TOKEN &#125;&#125; --yes --name $&#123;&#123;secrets.VERCEL_PROJECT_EAMON_ID&#125;&#125;
-      DEPLOYMENT_URL=$(vercel --token $&#123;&#123; secrets.VERCEL_TOKEN &#125;&#125; ls --prod | grep -o &#39;https://[^ ]*&#39; | head -n 1)
-      
-      # 1.可设置为 环境变量，在其他步骤使用
-      echo &quot;DEPLOYMENT_URL=$&#123;DEPLOYMENT_URL&#125;&quot; &gt;&gt; $GITHUB_ENV
-      # 2.将 $DEPLOYMENT_URL 的值 赋值给当前作业的 输出变量 DEPLOYMENT_URL，在其他步骤以“steps.get-url.outputs.DEPLOYMENT_URL“形式引用（即将废弃）
-      # echo &quot;::set-output name=DEPLOYMENT_URL::$DEPLOYMENT_URL&quot;
-      # 3.也可写入txt，在其他步骤使用（查看所有 环境变量，找到 环境变量DEPLOYMENT_URL的键值对，取其值，保存为txt文本 ）
-      cat $GITHUB_ENV | grep DEPLOYMENT_URL | cut -d&#39;=&#39; -f2 &gt; DEPLOYMENT_URL.txt
-      
-      a=$(cat DEPLOYMENT_URL.txt) # 赋值表达式“=“两边 不能有空格
-      echo $a
-      # 打印变量（含 环境变量）的 3种 方式：echo &quot;我是$a&quot;、echo &quot;我是$&#123;a&#125;&quot;、echo $a
+<h3 id="五、deploy-yml完整代码（含-github仓库secret）："><a href="#五、deploy-yml完整代码（含-github仓库secret）：" class="headerlink" title="五、deploy.yml完整代码（含 github仓库secret）："></a>五、deploy.yml完整代码（含 github仓库secret）：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">name: Deploy to Vercel</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"></span><br><span class="line">jobs:</span><br><span class="line">  deploy:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    </span><br><span class="line">steps:</span><br><span class="line">  - name: Checkout repository</span><br><span class="line">    uses: actions/checkout@v2</span><br><span class="line"></span><br><span class="line">  - name: Install Vercel CLI</span><br><span class="line">    run: npm install -g vercel</span><br><span class="line"></span><br><span class="line">  - name: Deploy to Vercel And Get Deployment URL</span><br><span class="line">    id: get-url</span><br><span class="line">    env:</span><br><span class="line">      VERCEL_TOKEN: $&#123;&#123; secrets.VERCEL_TOKEN &#125;&#125;</span><br><span class="line">    run: |</span><br><span class="line">      vercel --prod --token $&#123;&#123; secrets.VERCEL_TOKEN &#125;&#125; --yes --name $&#123;&#123;secrets.VERCEL_PROJECT_EAMON_ID&#125;&#125;</span><br><span class="line">      DEPLOYMENT_URL=$(vercel --token $&#123;&#123; secrets.VERCEL_TOKEN &#125;&#125; ls --prod | grep -o &#x27;https://[^ ]*&#x27; | head -n 1)</span><br><span class="line">      </span><br><span class="line">      # 1.可设置为 环境变量，在其他步骤使用</span><br><span class="line">      echo &quot;DEPLOYMENT_URL=$&#123;DEPLOYMENT_URL&#125;&quot; &gt;&gt; $GITHUB_ENV</span><br><span class="line">      # 2.将 $DEPLOYMENT_URL 的值 赋值给当前作业的 输出变量 DEPLOYMENT_URL，在其他步骤以“steps.get-url.outputs.DEPLOYMENT_URL“形式引用（即将废弃）</span><br><span class="line">      # echo &quot;::set-output name=DEPLOYMENT_URL::$DEPLOYMENT_URL&quot;</span><br><span class="line">      # 3.也可写入txt，在其他步骤使用（查看所有 环境变量，找到 环境变量DEPLOYMENT_URL的键值对，取其值，保存为txt文本 ）</span><br><span class="line">      cat $GITHUB_ENV | grep DEPLOYMENT_URL | cut -d&#x27;=&#x27; -f2 &gt; DEPLOYMENT_URL.txt</span><br><span class="line">      </span><br><span class="line">      a=$(cat DEPLOYMENT_URL.txt) # 赋值表达式“=“两边 不能有空格</span><br><span class="line">      echo $a</span><br><span class="line">      # 打印变量（含 环境变量）的 3种 方式：echo &quot;我是$a&quot;、echo &quot;我是$&#123;a&#125;&quot;、echo $a</span><br><span class="line"></span><br><span class="line">  - name: Get Vercel Project Info</span><br><span class="line">    env:</span><br><span class="line">      VERCEL_TOKEN: $&#123;&#123; secrets.VERCEL_TOKEN &#125;&#125;</span><br><span class="line">    run: |</span><br><span class="line">     curl -s -H &quot;Authorization: Bearer $VERCEL_TOKEN&quot; https://api.vercel.com/v6/projects/$&#123;&#123;secrets.VERCEL_PROJECT_EAMON_ID&#125;&#125; &gt; vercel_project.json</span><br><span class="line">     cat vercel_project.json</span><br><span class="line"></span><br><span class="line">  - name: Extract Custom Domain</span><br><span class="line">    run: |</span><br><span class="line">      # 提取 domain</span><br><span class="line">      DOMAIN=$(cat vercel_project.json | jq -r &#x27;.alias[0].domain // empty&#x27;)</span><br><span class="line">      echo &quot;Custom Domain: $DOMAIN&quot;</span><br><span class="line">      echo &quot;CUSTOM_DOMAIN=$&#123;DOMAIN&#125;&quot; &gt;&gt; $GITHUB_ENV</span><br><span class="line">      </span><br><span class="line">      # 若vercel平台待部署项目 未关联域名，则使用 DEPLOYMENT_URL作为environment_url【须以https开头】</span><br><span class="line">      if [ -z &quot;$DOMAIN&quot; ]; then</span><br><span class="line">        CUSTOM_DOMAIN=$DEPLOYMENT_URL</span><br><span class="line">      fi</span><br><span class="line">    </span><br><span class="line">  - name: Create deployment status on GitHub</span><br><span class="line">    env:</span><br><span class="line">      GITHUB_TOKEN: $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;</span><br><span class="line">    run: |</span><br><span class="line">      curl -X POST \</span><br><span class="line">        -H &quot;Authorization: token $GITHUB_TOKEN&quot; \</span><br><span class="line">        -H &quot;Accept: application/vnd.github.v3+json&quot; \</span><br><span class="line">        https://api.github.com/repos/$&#123;&#123; github.repository &#125;&#125;/deployments \</span><br><span class="line">        -d &#x27;&#123;</span><br><span class="line">              &quot;ref&quot;: &quot;master&quot;,</span><br><span class="line">              &quot;environment&quot;: &quot;vercel-prod&quot;,</span><br><span class="line">              &quot;description&quot;: &quot;Deployment to Vercel&quot;,</span><br><span class="line">              &quot;auto_merge&quot;: false,</span><br><span class="line">              &quot;required_contexts&quot;: [],</span><br><span class="line">              &quot;payload&quot;: &#123;&#125;,</span><br><span class="line">              &quot;transient_environment&quot;: false,</span><br><span class="line">              &quot;production_environment&quot;: true</span><br><span class="line">            &#125;&#x27; | jq -r &#x27;.id&#x27; &gt; deployment_id.txt</span><br><span class="line"></span><br><span class="line">              # txt形式，不同步骤之间传递值</span><br><span class="line">              DEPLOYMENT_ID=$(cat deployment_id.txt)</span><br><span class="line">              # 或 环境变量 形式，不同步骤之间传递值</span><br><span class="line">              echo &quot;DEPLOYMENT_ID=$&#123;DEPLOYMENT_ID&#125;&quot; &gt;&gt; $GITHUB_ENV</span><br><span class="line">      </span><br><span class="line">  - name: Update deployment status</span><br><span class="line">    env:</span><br><span class="line">      GITHUB_TOKEN: $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;</span><br><span class="line">    run: |</span><br><span class="line">      DEPLOYMENT_URL=$(cat DEPLOYMENT_URL.txt)</span><br><span class="line">      DEPLOYMENT_ID=$(cat deployment_id.txt)</span><br><span class="line">      # 或 环境变量 DEPLOYMENT_ID=$&#123;&#123;env.DEPLOYMENT_ID&#125;&#125;</span><br><span class="line">      curl -X POST \</span><br><span class="line">        -H &quot;Authorization: token $GITHUB_TOKEN&quot; \</span><br><span class="line">        -H &quot;Accept: application/vnd.github.v3+json&quot; \</span><br><span class="line">        https://api.github.com/repos/$&#123;&#123; github.repository &#125;&#125;/deployments/$&#123;DEPLOYMENT_ID&#125;/statuses \</span><br><span class="line">        -d &#x27;&#123;</span><br><span class="line">              &quot;state&quot;: &quot;success&quot;,</span><br><span class="line">              &quot;description&quot;: &quot;Deployment to Vercel successful&quot;,</span><br><span class="line">              &quot;auto_inactive&quot;: true,</span><br><span class="line">              &quot;log_url&quot;: &quot;&#x27;$&#123;DEPLOYMENT_URL&#125;&#x27;&quot;,</span><br><span class="line">              &quot;environment_url&quot;: &quot;&#x27;https://$CUSTOM_DOMAIN&#x27;&quot;</span><br><span class="line">            &#125;&#x27;</span><br></pre></td></tr></table></figure>
 
 
-  - name: Get Vercel Project Info
-    env:
-      VERCEL_TOKEN: $&#123;&#123; secrets.VERCEL_TOKEN &#125;&#125;
-    run: |
-     curl -s -H &quot;Authorization: Bearer $VERCEL_TOKEN&quot; https://api.vercel.com/v6/projects/$&#123;&#123;secrets.VERCEL_PROJECT_EAMON_ID&#125;&#125; &gt; vercel_project.json
-     cat vercel_project.json
 
-  - name: Extract Custom Domain
-    run: |
-      # 提取 domain
-      DOMAIN=$(cat vercel_project.json | jq -r &#39;.alias[0].domain // empty&#39;)
-      echo &quot;Custom Domain: $DOMAIN&quot;
-      echo &quot;CUSTOM_DOMAIN=$&#123;DOMAIN&#125;&quot; &gt;&gt; $GITHUB_ENV
-      
-      # 若vercel平台待部署项目 未关联域名，则使用 DEPLOYMENT_URL作为environment_url【须以https开头】
-      if [ -z &quot;$DOMAIN&quot; ]; then
-        CUSTOM_DOMAIN=$DEPLOYMENT_URL
-      fi
-    
-  - name: Create deployment status on GitHub
-    env:
-      GITHUB_TOKEN: $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;
-    run: |
-      curl -X POST \
-        -H &quot;Authorization: token $GITHUB_TOKEN&quot; \
-        -H &quot;Accept: application/vnd.github.v3+json&quot; \
-        https://api.github.com/repos/$&#123;&#123; github.repository &#125;&#125;/deployments \
-        -d &#39;&#123;
-              &quot;ref&quot;: &quot;master&quot;,
-              &quot;environment&quot;: &quot;vercel-prod&quot;,
-              &quot;description&quot;: &quot;Deployment to Vercel&quot;,
-              &quot;auto_merge&quot;: false,
-              &quot;required_contexts&quot;: [],
-              &quot;payload&quot;: &#123;&#125;,
-              &quot;transient_environment&quot;: false,
-              &quot;production_environment&quot;: true
-            &#125;&#39; | jq -r &#39;.id&#39; &gt; deployment_id.txt
 
-              # txt形式，不同步骤之间传递值
-              DEPLOYMENT_ID=$(cat deployment_id.txt)
-              # 或 环境变量 形式，不同步骤之间传递值
-              echo &quot;DEPLOYMENT_ID=$&#123;DEPLOYMENT_ID&#125;&quot; &gt;&gt; $GITHUB_ENV
-      
-  - name: Update deployment status
-    env:
-      GITHUB_TOKEN: $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;
-    run: |
-      DEPLOYMENT_URL=$(cat DEPLOYMENT_URL.txt)
-      DEPLOYMENT_ID=$(cat deployment_id.txt)
-      # 或 环境变量 DEPLOYMENT_ID=$&#123;&#123;env.DEPLOYMENT_ID&#125;&#125;
-      curl -X POST \
-        -H &quot;Authorization: token $GITHUB_TOKEN&quot; \
-        -H &quot;Accept: application/vnd.github.v3+json&quot; \
-        https://api.github.com/repos/$&#123;&#123; github.repository &#125;&#125;/deployments/$&#123;DEPLOYMENT_ID&#125;/statuses \
-        -d &#39;&#123;
-              &quot;state&quot;: &quot;success&quot;,
-              &quot;description&quot;: &quot;Deployment to Vercel successful&quot;,
-              &quot;auto_inactive&quot;: true,
-              &quot;log_url&quot;: &quot;&#39;$&#123;DEPLOYMENT_URL&#125;&#39;&quot;,
-              &quot;environment_url&quot;: &quot;&#39;https://$CUSTOM_DOMAIN&#39;&quot;
-            &#125;&#39;
-</code></pre>
-<p>“““</p>
-<h2 id="六、注意事项"><a href="#六、注意事项" class="headerlink" title="六、注意事项"></a>六、注意事项</h2><h4 id="（“jobs输出变量”、“环境变量”在json中的不同书写方式，注意“引号”）"><a href="#（“jobs输出变量”、“环境变量”在json中的不同书写方式，注意“引号”）" class="headerlink" title="（“jobs输出变量”、“环境变量”在json中的不同书写方式，注意“引号”）"></a>（“jobs输出变量”、“环境变量”在json中的不同书写方式，注意“引号”）</h4><p>“““shell</p>
-<h1 id="job输出变量-书写"><a href="#job输出变量-书写" class="headerlink" title="job输出变量 书写"></a>job输出变量 书写</h1><h1 id="“environment-url”-“‘-‘“"><a href="#“environment-url”-“‘-‘“" class="headerlink" title="“environment_url”: “‘$‘“"></a>“environment_url”: “‘$NaN‘“</h1><h1 id="环境变量-书写"><a href="#环境变量-书写" class="headerlink" title="环境变量 书写"></a>环境变量 书写</h1><h1 id="“log-url”-“‘“-“‘“"><a href="#“log-url”-“‘“-“‘“" class="headerlink" title="“log_url”: “‘“$“‘“,"></a>“log_url”: “‘“$“‘“,</h1><h1 id="“environment-url”-“‘-DEPLOYMENT-URL-’”"><a href="#“environment-url”-“‘-DEPLOYMENT-URL-’”" class="headerlink" title="“environment_url”: “‘${ DEPLOYMENT_URL }’”"></a>“environment_url”: “‘${ DEPLOYMENT_URL }’”</h1><h1 id="“environment-url”-“‘-DEPLOYMENT-URL’”"><a href="#“environment-url”-“‘-DEPLOYMENT-URL’”" class="headerlink" title="“environment_url”: “‘$DEPLOYMENT_URL’”"></a>“environment_url”: “‘$DEPLOYMENT_URL’”</h1><p>“““</p>
+
+<h2 id="六、注意事项"><a href="#六、注意事项" class="headerlink" title="六、注意事项"></a>六、注意事项</h2><h4 id="（“jobs输出变量”、“环境变量”在json中的不同书写方式，注意“引号”）"><a href="#（“jobs输出变量”、“环境变量”在json中的不同书写方式，注意“引号”）" class="headerlink" title="（“jobs输出变量”、“环境变量”在json中的不同书写方式，注意“引号”）"></a>（“jobs输出变量”、“环境变量”在json中的不同书写方式，注意“引号”）</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">job输出变量 书写</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">&quot;environment_url&quot;</span>: <span class="string">&quot;&#x27;<span class="variable">$&#123;&#123;steps.get-url.outputs.DEPLOYMENT_URL&#125;</span>&#125;&#x27;&quot;</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">环境变量 书写</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">&quot;log_url&quot;</span>: <span class="string">&quot;&#x27;&quot;</span><span class="variable">$&#123;&#123; env.DEPLOYMENT_URL &#125;</span>&#125;<span class="string">&quot;&#x27;&quot;</span>,</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">&quot;environment_url&quot;</span>: <span class="string">&quot;&#x27;<span class="variable">$&#123; DEPLOYMENT_URL &#125;</span>&#x27;&quot;</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">&quot;environment_url&quot;</span>: <span class="string">&quot;&#x27;<span class="variable">$DEPLOYMENT_URL</span>&#x27;&quot;</span></span></span><br></pre></td></tr></table></figure>
+
 
       
     </div><!-- .entry-content -->
